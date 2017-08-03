@@ -20,9 +20,9 @@
 
     $(document).ready(function(){
       var container = $('.ledstrip')[0];
-      var light_count = 30;
+      var light_count = 195;
       strip = LEDstrip(container, light_count);
-      driver = new ColorWave(strip);
+      driver = new TwinkleSparkle(strip);
       driver.init();
       animation = driver.animate.bind(driver)();
 
@@ -32,7 +32,7 @@
 
       $('#animselect').change(function(e) {
         var newanim = $(e.target).val();
-        console.log('change! ' + newanim); 
+        console.log('change! ' + newanim);
         animation = cancelAnimationFrame(animation);
         switch(newanim) {
           case 'torture':
@@ -62,15 +62,15 @@
           case 'eyeblink':
             driver = new Eyeblinks(strip);
             break;
-      /*
-          case 'cycle': 
+
+          case 'cycle':
             cycle.color_cycle();
             console.log('torture ' + animation);
             break;
-          case 'flares':        
+          case 'flares':
             driver = new flare();
             break;
-      */
+
           case 'stop':
             animation = cancelAnimationFrame(animation);
             return;
@@ -85,7 +85,7 @@
 <body>
        <header>
          <h1>LED Strip Simulator</h1>
-         <p>A software simulation of individually addressable RGB LED strips 
+         <p>A software simulation of individually addressable RGB LED strips
          (WS2811/WS2812), often used with Arduino.</p>
        </header>
        <article>
@@ -109,8 +109,8 @@
            <input type="checkbox" id="diffuser" value="0" /> <label for="diffuser">Diffuser</label>
          </form>
          <p id="output"></p>
-         <p>For more information:</p>
-         <ul>
+         <p class="info">For more information:</p>
+         <ul class="info">
            <li><a href="https://github.com/DannyHavenith/ws2811">Danny Havenith's WS2811 Arduino library</a></li>
            <li><a href="http://rurandom.org/justintime/index.php?title=Driving_the_WS2811_at_800_kHz_with_an_8_MHz_AVR">Detailed description and videos</a></li>
          </ul>

@@ -62,7 +62,15 @@ li {
   -webkit-filter: blur(5px) brightness(200%);
   /* Standard, Firefox, IE Edge with option enabled */
   filter: blur(5px) brightness(200%);
+
 }
+
+
+
+form, .info {
+position: relative; top: 550px;
+}
+
 
 #output {
   margin-top: 1em;
